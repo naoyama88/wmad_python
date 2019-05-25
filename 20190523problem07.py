@@ -4,9 +4,13 @@ def divide(A, B):
     :param B: operand which will divide A
     :return:
     """
-    result = A / B
-    print(result)
-    return result
+    # result = A / B
+    count = 0
+    while A - B >= 0:
+        A = A - B
+        count += 1
+    print(count)
+    return count
 
 
 def main():
