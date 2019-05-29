@@ -8,29 +8,28 @@ def bubble_sort(array):
     :return: sorted array
     """
     length = len(array)
-    is_sorted = True
-    while is_sorted:
-        is_sorted = False
-        for i in range(length):
-            if i == length - 1:
-                break
-            if array[i] > array[i + 1]:
-                temp = array[i]
-                array[i] = array[i + 1]
-                array[i + 1] = temp
-                is_sorted = True
-
+    for i in range(length):
+        for j in range(length - 1, i, -1):
+            if array[j - 1] > array[j]:
+                array[j], array[j - 1] = array[j - 1], array[j]
     return array
 
 
 def main():
     # receive [1, 2, 3, 4, 7, 8, 11, 12]
-    sorted_array = bubble_sort([12, 3, 8, 4, 11, 2, 7, 1])
-    print1DList(sorted_array)
+    sorted_array_1 = bubble_sort([12, 3, 8, 4, 11, 2, 7, 1])
+    print1DList(sorted_array_1)
+    print()
 
     # receive [1, 2, 3, 3, 3, 6, 7, 9]
-    sorted_array = bubble_sort([3, 1, 9, 6, 7, 2, 3, 3])
-    print1DList(sorted_array)
+    sorted_array_2 = bubble_sort([3, 1, 9, 6, 7, 2, 3, 3])
+    print1DList(sorted_array_2)
+    print()
+
+    # receive [0, 0, 1, 2, 3, 4, 5, 7, 8, 9, 10]
+    sorted_array_3 = bubble_sort([10, 9, 8, 7, 0, 5, 4, 3, 2, 1, 0])
+    print1DList(sorted_array_3)
+    print()
 
 
 main()
