@@ -1,27 +1,23 @@
-def array_search(haystack, thread):
+def array_search(haystack, needle):
     """
-    return -1 if thread does not exist in haystack
-    or return the index of haystack if thread exists in haystack
+    return (-1, 0) if needle does not exist in haystack
+    or return the index of haystack if needle exists in haystack and the number of needles
     :param haystack: array of integers:
-    :param thread: number: target number
+    :param needle: number: target number
     :return: tuple(-1, 0) or tuple(
                 0: The index of the first occurrence
-                1: The count which is how many times thread exists in haystack
+                1: The count how many times needle exists in haystack
             )
     """
     length = len(haystack)
-    found = False
+    index = -1
     count = 0
     for i in range(length):
-        if haystack[i] == thread:
+        if haystack[i] == needle:
             count += 1
-            if not found:
+            if index == -1:
                 index = i
-                found = True
-    if found:
-        return index, count
-    else:
-        return -1, 0
+    return index, count
 
 
 def main():

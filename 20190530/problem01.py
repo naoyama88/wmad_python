@@ -1,14 +1,14 @@
-def array_search(haystack, thread):
+def array_search(haystack, needle):
     """
     return -1 if the thread does not exist in haystack
-    or return the index of haystack if thread exists in haystack.
+    or return the index of haystack if needle exists in haystack.
     :param haystack: array of integers:
-    :param thread: number: target number
+    :param needle: number: target number
     :return: integer or -1
     """
     length = len(haystack)
     for i in range(length):
-        if haystack[i] == thread:
+        if haystack[i] == needle:
             return i
     return -1
 
