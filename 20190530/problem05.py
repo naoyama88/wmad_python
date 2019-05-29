@@ -1,21 +1,44 @@
 from problem00 import print1DList
 
 
-def find_greatest_student(array):
+def find_greatest_student(students_information_list):
     """
     find person who has highest GPA and return tuple(0:the person's name and 1:it's GPA)
-    :param array: array of tuples
+    :param students_information_list: array of tuples
     :return: tuple(greatest_student_name, highest_gpa)
     """
     highest_gpa = -1
     greatest_student_name = ''
-    for v in array:
-        student_name = v[0]
-        gpa = get_gpa([v[1], v[2], v[3], v[4], v[5]])
+    for students_information in students_information_list:
+        gpa = get_gpa(get_student_scores(students_information))
         if gpa > highest_gpa:
-            greatest_student_name = student_name
+            greatest_student_name = get_student_name(students_information)
             highest_gpa = gpa
     return greatest_student_name, highest_gpa
+
+
+def get_student_name(student_information):
+    """
+    return the first element of parameter
+    :param student_information:
+    :return: string: student's name
+    """
+    return student_information[0]
+
+
+def get_student_scores(student_information):
+    """
+    return the index [1],[2],[3],[4],[5] elements of parameter
+    :param student_information:
+    :return: array of integers: scores
+    """
+    return [
+        student_information[1]
+        , student_information[2]
+        , student_information[3]
+        , student_information[4]
+        , student_information[5]
+    ]
 
 
 def get_gpa(scores):

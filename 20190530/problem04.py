@@ -8,10 +8,7 @@ def remove_target_from(array, target):
     :param target: number
     :return:
     """
-    new_array = []
-    for v in array:
-        if v != target:
-            new_array.append(v)
+    new_array = [i for i in array if i != target]
     return new_array
 
 
