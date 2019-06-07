@@ -1,0 +1,202 @@
+Problem0: Multiple Choices
+1) d
+2) d
+3) a
+4) a
+5) b
+
+Problem1: True/False
+- False
+- False
+- False
+- False
+- False
+
+Problem3: Hand Tracing
+1) 5
+2)
+--------------------------
+|  N  |  M  |  F  |Output|
+--------------------------
+|  5  |  1  |  1  |   -  |
+--------------------------
+|     |  2  |  2  |   -  |
+--------------------------
+|     |  3  |  6  |   -  |
+--------------------------
+|     |  4  | 24  |   -  |
+--------------------------
+|     |  5  | 120 |  120 |
+
+3) This problem print the factorial of the "N"
+
+
+Problem4: Algorithm and Flowchart Design
+
+word = from user input, get a word which may contain alphabets and digits
+for character in word:
+    if character is digit:
+	    print the digit
+ --------
+(  start  )
+ --------
+     ↓
+   -------
+  / word /
+  -------
+     ↓
+                  /\
+|→  |is length of word is not 0  | → no, go to end
+|                 \/
+|                 ↓yes
+|   -------------------------------
+|   |character = head of the word |
+|   -------------------------------
+|     ↓
+|               /\
+|  | if character is digit|
+|               \/
+|     ↓
+|   --------------------
+|   |print the character|
+|   ---------------------
+|     ↓
+|
+|   --------------------------------
+|   |word = word - head of the word|
+|   --------------------------------
+|      ↓
+| ←----
+       ↓
+	 ( End )
+
+Problem5: Debugging
+reason:
+"sideLength" in the function cubeVolume() is outside of the scope.
+It must be inside of the scope.
+There are 2 ways to fix it.
+1: put "sideLength" outside of the function
+
+sideLength = 10
+
+def main():
+    volume = cubeVolume()
+    print(“The volume is: %d “ %volume)
+
+def cubeVolume():
+    volume = sideLength**3
+    return volume
+
+main()
+
+2: make "sideLength" as parameter
+
+def main():
+    sideLength = 10
+    volume = cubeVolume(sideLength)
+    print(“The volume is: %d “ %volume)
+
+def cubeVolume(sideLength):
+    volume = sideLength**3
+    return volume
+
+main()
+
+
+
+Problem6: Explanation
+- What is a class?
+class is the parent of their instanses.
+And also class is kinda category of object.
+
+- What is an instance and how it is different from a class?
+instance is made of class.
+I can say class is design and instance is a object made of class as design.
+
+- What is the scope of a variable?
+It's a range that variable works inside of it.
+If the variable is outside of the scope, it behave as undefined variable.
+
+- What is a static variable?
+It's variable which can be shared by other process of the programs.
+If you change tha value of the static variable,
+everybody is effected.
+
+- What is an object reference?
+It's kinda link between variable and the location of the memory.
+We can copy the reference of the object.
+If you change the value of the copy of the object, the original object will be effected.
+
+
+Problem7: Class Design
+class Computer:
+
+    _brand = 'Mac'
+
+    def __init__(self):
+	    self._memory = 8
+	    self._storage_type = 'HDD'
+	    self._storage = 512
+	    self._core = 8
+
+	def upgrade_memory():
+	    self.memory = self.memory * 2
+
+	def change_storage(storage_type, storage):
+	    self._storage_type = storage_type
+	    self._storage = storage
+
+
+def test_cases():
+    computer = Computer()
+	print(computer._memory)
+	print(computer._storage_type)
+	print(computer._storage)
+	print(computer._core)
+	computer.upgrade_memory()
+	print(computer._memory)
+	computer.change_storage('SSD', 1024)
+	print(computer._storage_type)
+	print(computer._storage)
+
+test_case()
+
+
+Problem8: Coding
+
+def remove_duplicate_characters(word):
+	character_dic = {}
+    for c in word:
+	    if c in character_dic:
+		    character_dic[c] += 1
+        else:
+            character_dic[c] = 1
+    new_word = ''
+    for (key, value) in character_dic.items():
+        if value == 1:
+            new_word = new_word + key
+
+    return new_word
+
+
+Problem9: Coding
+
+def is_sorted_list(array):
+    sorted_array = sorted(array)
+    if array == sorted_array:
+        return True
+    else:
+        return False
+
+
+Problem10: Coding
+
+def create_english_dictionary(word_list):
+    word_list.sort()
+    word_dic = {}
+    for word in word_list:
+        c = word[0:1].upper()
+        if c not in word_dic:
+            word_dic[c] = []
+        word_dic[c].append(word)
+    return word_dic
