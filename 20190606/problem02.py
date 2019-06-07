@@ -3,9 +3,8 @@ class MyCustomList:
         self.my_list = []
 
     def addItem(self, new_num):
-        for num in self.my_list:
-            if new_num == num:
-                return
+        if new_num in self.my_list:
+            return
         self.my_list.append(new_num)
 
     def calculateSum(self):
